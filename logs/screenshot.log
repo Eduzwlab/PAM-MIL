@@ -1,29 +1,0 @@
-Namespace(accumulation_steps=1, act='relu', always_test=False, amp=False, attn_layer=0, auto_resume=False, baseline='selfattn', batch_size=1, cl_alpha=0.1, clip_grad=0.0, cls_alpha=1.0, cv_fold=3, da_act='relu', dataset_root='/mnt/ai2020/Vm/2-changhai-dataset/2-research_normalizationused_dataset/BasalLumAB/CPCGEA-SLIDES-tumortile-1to1/TCGA-CRC-DX/FEATURES11', datasets='camelyon16', dropout=0.25, ds_average=False, early_stopping=True, fix_loader_random=True, fix_train_random=True, fold_start=0, group_shuffle=False, init_stu_type='fc', log_iter=100, loss='ce', lr=0.0002, lr_sche='cosine', lr_supi=False, mask_ratio=0.0, mask_ratio_h=0.03, mask_ratio_hr=0.5, mask_ratio_l=0.8, max_epoch=130, mm=0.9999, mm_final=1.0, mm_sche=True, model='mhim', model_path='/mnt/ai2019/hzw/code/newtry/4-RNA-sqe/MHIM-MIL-master/output_basal/mil_new_c16/transmil_101_sml80h3-0r50_mmcos_is', mrh_sche=True, msa_fusion='vote', n_classes=2, n_heads=8, no_log=False, no_tea_init=False, num_epoch=200, num_workers=8, opt='adam', patch_shuffle=False, persistence=False, project='mil_new_c16', same_psize=0, save_best_model_stage=0.0, seed=2021, shuffle_group=0, tcga_max_patch=-1, tea_type='none', teacher_init='./modules/init_ckp/c16_3fold_init_transmil_seed2021', temp_t=0.1, title='transmil_101_sml80h3-0r50_mmcos_is', val_ratio=0.0, wandb=False, weight_decay=1e-05)
-Tue Oct 24 11:55:28 2023
-patient_len:104 label_len:104
-all_counter:{'1': 21, '0': 83}
-Dataset: camelyon16
-Start 3-fold cross validation: fold 0 
-######### Model Initializing.....
-_IncompatibleKeys(missing_keys=[], unexpected_keys=['online_encoder.cls_token', 'online_encoder.mask_token', 'online_encoder.norm.weight', 'online_encoder.norm.bias', 'online_encoder.layer1.norm.weight', 'online_encoder.layer1.norm.bias', 'online_encoder.layer1.attn.to_qkv.weight', 'online_encoder.layer1.attn.to_out.0.weight', 'online_encoder.layer1.attn.to_out.0.bias', 'online_encoder.layer1.attn.res_conv.weight', 'online_encoder.layer2.norm.weight', 'online_encoder.layer2.norm.bias', 'online_encoder.layer2.attn.to_qkv.weight', 'online_encoder.layer2.attn.to_out.0.weight', 'online_encoder.layer2.attn.to_out.0.bias', 'online_encoder.layer2.attn.res_conv.weight', 'online_encoder.pos_embedding.proj.weight', 'online_encoder.pos_embedding.proj.bias', 'online_encoder.pos_embedding.proj1.weight', 'online_encoder.pos_embedding.proj1.bias', 'online_encoder.pos_embedding.proj2.weight', 'online_encoder.pos_embedding.proj2.bias', 'predictor.weight', 'predictor.bias'])
-######### Teacher Initializing.....
-_IncompatibleKeys(missing_keys=[], unexpected_keys=['online_encoder.mask_token'])
-[0/68] logit_loss:0.005761563777923584, cls_loss:7.9004740715026855,  patch_num:3497.0, keep_num:680.0 
-[68/68] logit_loss:0.9568154215812683, cls_loss:1.9199143648147583,  patch_num:4075.2753623188405, keep_num:769.0144927536232 
- Epoch [1/200] train loss: 1.1E+00, test loss: 4.9E-01, accuracy: 0.800, auc_value:0.699, precision: 0.500, recall: 0.571, fscore: 0.533 , time: 5.365(5.365)
-[0/68] logit_loss:0.22107575833797455, cls_loss:0.8679054379463196,  patch_num:2668.0, keep_num:520.0 
-[68/68] logit_loss:0.5706706643104553, cls_loss:0.8961698412895203,  patch_num:4075.2753623188405, keep_num:768.3478260869565 
- Epoch [2/200] train loss: 6.6E-01, test loss: 4.9E-01, accuracy: 0.600, auc_value:0.755, precision: 0.333, recall: 1.000, fscore: 0.500 , time: 4.245(4.805)
-[0/68] logit_loss:1.5841401815414429, cls_loss:0.6120917797088623,  patch_num:2340.0, keep_num:428.0 
-[68/68] logit_loss:0.7159485816955566, cls_loss:1.3188598155975342,  patch_num:4075.2753623188405, keep_num:768.2028985507246 
-EarlyStopping counter: 1 out of 30
- Epoch [3/200] train loss: 8.5E-01, test loss: 6.0E-01, accuracy: 0.657, auc_value:0.541, precision: 0.308, recall: 0.571, fscore: 0.400 , time: 4.030(4.547)
-[0/68] logit_loss:0.12486289441585541, cls_loss:0.9568598866462708,  patch_num:1277.0, keep_num:228.0 
-[68/68] logit_loss:0.6711825132369995, cls_loss:1.2137666940689087,  patch_num:4075.2753623188405, keep_num:765.1739130434783 
-EarlyStopping counter: 2 out of 30
- Epoch [4/200] train loss: 7.9E-01, test loss: 5.6E-01, accuracy: 0.686, auc_value:0.622, precision: 0.333, recall: 0.571, fscore: 0.421 , time: 3.969(4.402)
-[0/68] logit_loss:0.10594629496335983, cls_loss:0.45458146929740906,  patch_num:4685.0, keep_num:921.0 
-[68/68] logit_loss:0.5411425828933716, cls_loss:1.0795905590057373,  patch_num:4075.2753623188405, keep_num:763.3188405797101 
-EarlyStopping counter: 3 out of 30
- Epoch [5/200] train loss: 6.5E-01, test loss: 6.2E-01, accuracy: 0.600, auc_value:0.750, precision: 0.333, recall: 1.000, fscore: 0.500 , time: 4.101(4.342)
-[0/68] logit_loss:0.1246330738067627, cls_loss:0.3009377419948578,  patch_num:383.0, keep_num:73.0 

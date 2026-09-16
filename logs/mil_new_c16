@@ -1,193 +1,0 @@
-Namespace(accumulation_steps=1, act='relu', always_test=False, amp=False, attn_layer=0, auto_resume=False, baseline='selfattn', batch_size=1, cl_alpha=0.1, clip_grad=0.0, cls_alpha=1.0, cv_fold=3, da_act='relu', dataset_root='/mnt/ai2020/Vm/2-changhai-dataset/2-research_normalizationused_dataset/BasalLumAB/CPCGEA-SLIDES-tumortile-1to1/TCGA-CRC-DX/FEATURES11', datasets='camelyon16', dropout=0.25, ds_average=False, early_stopping=True, fix_loader_random=True, fix_train_random=True, fold_start=0, group_shuffle=False, init_stu_type='fc', log_iter=100, loss='ce', lr=0.0002, lr_sche='cosine', lr_supi=False, mask_ratio=0.0, mask_ratio_h=0.03, mask_ratio_hr=0.5, mask_ratio_l=0.8, max_epoch=130, mm=0.9999, mm_final=1.0, mm_sche=True, model='mhim', model_path='/mnt/ai2019/hzw/code/newtry/4-RNA-sqe/MHIM-MIL-master/output_basal/mil_new_c16/transmil_101_sml80h3-0r50_mmcos_is', mrh_sche=True, msa_fusion='vote', n_classes=2, n_heads=8, no_log=False, no_tea_init=False, num_epoch=200, num_workers=8, opt='adam', patch_shuffle=False, persistence=False, project='mil_new_c16', same_psize=0, save_best_model_stage=0.0, seed=2021, shuffle_group=0, tcga_max_patch=-1, tea_type='none', teacher_init='./modules/init_ckp/c16_3fold_init_transmil_seed2021', temp_t=0.1, title='transmil_101_sml80h3-0r50_mmcos_is', val_ratio=0.0, wandb=False, weight_decay=1e-05)
-Tue Oct 24 12:12:43 2023
-patient_len:104 label_len:104
-all_counter:{'1': 21, '0': 83}
-Dataset: camelyon16
-Start 3-fold cross validation: fold 0 
-######### Model Initializing.....
-_IncompatibleKeys(missing_keys=[], unexpected_keys=['online_encoder.cls_token', 'online_encoder.mask_token', 'online_encoder.norm.weight', 'online_encoder.norm.bias', 'online_encoder.layer1.norm.weight', 'online_encoder.layer1.norm.bias', 'online_encoder.layer1.attn.to_qkv.weight', 'online_encoder.layer1.attn.to_out.0.weight', 'online_encoder.layer1.attn.to_out.0.bias', 'online_encoder.layer1.attn.res_conv.weight', 'online_encoder.layer2.norm.weight', 'online_encoder.layer2.norm.bias', 'online_encoder.layer2.attn.to_qkv.weight', 'online_encoder.layer2.attn.to_out.0.weight', 'online_encoder.layer2.attn.to_out.0.bias', 'online_encoder.layer2.attn.res_conv.weight', 'online_encoder.pos_embedding.proj.weight', 'online_encoder.pos_embedding.proj.bias', 'online_encoder.pos_embedding.proj1.weight', 'online_encoder.pos_embedding.proj1.bias', 'online_encoder.pos_embedding.proj2.weight', 'online_encoder.pos_embedding.proj2.bias', 'predictor.weight', 'predictor.bias'])
-######### Teacher Initializing.....
-_IncompatibleKeys(missing_keys=[], unexpected_keys=['online_encoder.mask_token'])
-[0/68] logit_loss:0.005761563777923584, cls_loss:7.9004740715026855,  patch_num:3497.0, keep_num:680.0 
-[68/68] logit_loss:0.9568154215812683, cls_loss:1.9199143648147583,  patch_num:4075.2753623188405, keep_num:769.0144927536232 
- Epoch [1/200] train loss: 1.1E+00, test loss: 4.9E-01, accuracy: 0.800, auc_value:0.699, precision: 0.500, recall: 0.571, fscore: 0.533 , time: 5.040(5.040)
-[0/68] logit_loss:0.22107575833797455, cls_loss:0.8679054379463196,  patch_num:2668.0, keep_num:520.0 
-[68/68] logit_loss:0.5706706643104553, cls_loss:0.8961698412895203,  patch_num:4075.2753623188405, keep_num:768.3478260869565 
- Epoch [2/200] train loss: 6.6E-01, test loss: 4.9E-01, accuracy: 0.600, auc_value:0.755, precision: 0.333, recall: 1.000, fscore: 0.500 , time: 3.791(4.415)
-[0/68] logit_loss:1.5841401815414429, cls_loss:0.6120917797088623,  patch_num:2340.0, keep_num:428.0 
-[68/68] logit_loss:0.7159485816955566, cls_loss:1.3188598155975342,  patch_num:4075.2753623188405, keep_num:768.2028985507246 
-EarlyStopping counter: 1 out of 30
- Epoch [3/200] train loss: 8.5E-01, test loss: 6.0E-01, accuracy: 0.657, auc_value:0.541, precision: 0.308, recall: 0.571, fscore: 0.400 , time: 4.004(4.278)
-[0/68] logit_loss:0.12486289441585541, cls_loss:0.9568598866462708,  patch_num:1277.0, keep_num:228.0 
-[68/68] logit_loss:0.6711825132369995, cls_loss:1.2137666940689087,  patch_num:4075.2753623188405, keep_num:765.1739130434783 
-EarlyStopping counter: 2 out of 30
- Epoch [4/200] train loss: 7.9E-01, test loss: 5.6E-01, accuracy: 0.686, auc_value:0.622, precision: 0.333, recall: 0.571, fscore: 0.421 , time: 3.853(4.172)
-[0/68] logit_loss:0.10594629496335983, cls_loss:0.45458146929740906,  patch_num:4685.0, keep_num:921.0 
-[68/68] logit_loss:0.5411425828933716, cls_loss:1.0795905590057373,  patch_num:4075.2753623188405, keep_num:763.3188405797101 
-EarlyStopping counter: 3 out of 30
- Epoch [5/200] train loss: 6.5E-01, test loss: 6.2E-01, accuracy: 0.600, auc_value:0.750, precision: 0.333, recall: 1.000, fscore: 0.500 , time: 3.849(4.107)
-[0/68] logit_loss:0.1246330738067627, cls_loss:0.3009377419948578,  patch_num:383.0, keep_num:73.0 
-[68/68] logit_loss:0.5868611931800842, cls_loss:1.1446839570999146,  patch_num:4075.2753623188405, keep_num:763.0579710144928 
-EarlyStopping counter: 4 out of 30
- Epoch [6/200] train loss: 7.0E-01, test loss: 5.9E-01, accuracy: 0.514, auc_value:0.735, precision: 0.292, recall: 1.000, fscore: 0.452 , time: 3.834(4.062)
-[0/68] logit_loss:0.0042847259901463985, cls_loss:3.547316789627075,  patch_num:2182.0, keep_num:412.0 
-[68/68] logit_loss:0.47167089581489563, cls_loss:0.9502437710762024,  patch_num:4075.2753623188405, keep_num:762.6521739130435 
- Epoch [7/200] train loss: 5.7E-01, test loss: 9.2E-01, accuracy: 0.800, auc_value:0.827, precision: 0.500, recall: 0.857, fscore: 0.632 , time: 3.940(4.044)
-[0/68] logit_loss:2.5122718811035156, cls_loss:0.4870225489139557,  patch_num:185.0, keep_num:33.0 
-[68/68] logit_loss:0.5691366195678711, cls_loss:1.2406007051467896,  patch_num:4075.2753623188405, keep_num:759.8985507246376 
-EarlyStopping counter: 1 out of 30
- Epoch [8/200] train loss: 6.9E-01, test loss: 4.6E-01, accuracy: 0.800, auc_value:0.689, precision: 0.500, recall: 0.571, fscore: 0.533 , time: 3.807(4.015)
-[0/68] logit_loss:0.020729323849081993, cls_loss:3.4183554649353027,  patch_num:4448.0, keep_num:787.0 
-[68/68] logit_loss:0.5491877794265747, cls_loss:1.2582417726516724,  patch_num:4075.2753623188405, keep_num:760.3623188405797 
-EarlyStopping counter: 2 out of 30
- Epoch [9/200] train loss: 6.8E-01, test loss: 4.6E-01, accuracy: 0.514, auc_value:0.689, precision: 0.292, recall: 1.000, fscore: 0.452 , time: 3.790(3.990)
-[0/68] logit_loss:0.12119127064943314, cls_loss:4.007746696472168,  patch_num:2161.0, keep_num:383.0 
-[68/68] logit_loss:0.414459228515625, cls_loss:1.2262442111968994,  patch_num:4075.2753623188405, keep_num:759.7536231884058 
-EarlyStopping counter: 3 out of 30
- Epoch [10/200] train loss: 5.4E-01, test loss: 1.4E+00, accuracy: 0.886, auc_value:0.765, precision: 0.800, recall: 0.571, fscore: 0.667 , time: 3.909(3.982)
-[0/68] logit_loss:3.218599158572033e-05, cls_loss:0.6205267906188965,  patch_num:3497.0, keep_num:688.0 
-[68/68] logit_loss:0.6806389689445496, cls_loss:1.2797588109970093,  patch_num:4075.2753623188405, keep_num:759.5072463768116 
-EarlyStopping counter: 4 out of 30
- Epoch [11/200] train loss: 8.1E-01, test loss: 5.3E-01, accuracy: 0.886, auc_value:0.760, precision: 0.800, recall: 0.571, fscore: 0.667 , time: 3.923(3.976)
-[0/68] logit_loss:2.6504104137420654, cls_loss:0.873829185962677,  patch_num:3095.0, keep_num:556.0 
-[68/68] logit_loss:0.4737079441547394, cls_loss:1.2240619659423828,  patch_num:4075.2753623188405, keep_num:757.927536231884 
-EarlyStopping counter: 5 out of 30
- Epoch [12/200] train loss: 6.0E-01, test loss: 5.1E-01, accuracy: 0.886, auc_value:0.786, precision: 0.800, recall: 0.571, fscore: 0.667 , time: 3.896(3.970)
-[0/68] logit_loss:0.031616199761629105, cls_loss:0.949316680431366,  patch_num:2868.0, keep_num:518.0 
-[68/68] logit_loss:0.5425309538841248, cls_loss:1.218390941619873,  patch_num:4075.2753623188405, keep_num:756.8115942028985 
-EarlyStopping counter: 6 out of 30
- Epoch [13/200] train loss: 6.6E-01, test loss: 5.4E-01, accuracy: 0.886, auc_value:0.750, precision: 0.800, recall: 0.571, fscore: 0.667 , time: 3.919(3.966)
-[0/68] logit_loss:0.014061425812542439, cls_loss:0.5466189980506897,  patch_num:4448.0, keep_num:799.0 
-[68/68] logit_loss:0.5864093899726868, cls_loss:1.0905998945236206,  patch_num:4075.2753623188405, keep_num:757.4927536231884 
-EarlyStopping counter: 7 out of 30
- Epoch [14/200] train loss: 7.0E-01, test loss: 5.5E-01, accuracy: 0.886, auc_value:0.765, precision: 0.800, recall: 0.571, fscore: 0.667 , time: 3.902(3.961)
-[0/68] logit_loss:1.8631867170333862, cls_loss:0.5023916959762573,  patch_num:2735.0, keep_num:519.0 
-[68/68] logit_loss:0.45922037959098816, cls_loss:1.076740026473999,  patch_num:4075.2753623188405, keep_num:756.0 
-EarlyStopping counter: 8 out of 30
- Epoch [15/200] train loss: 5.7E-01, test loss: 4.6E-01, accuracy: 0.771, auc_value:0.770, precision: 0.455, recall: 0.714, fscore: 0.556 , time: 3.970(3.962)
-[0/68] logit_loss:0.08742471039295197, cls_loss:1.8389973640441895,  patch_num:6312.0, keep_num:1173.0 
-[68/68] logit_loss:0.47281232476234436, cls_loss:1.3345686197280884,  patch_num:4075.2753623188405, keep_num:757.2463768115942 
-EarlyStopping counter: 9 out of 30
- Epoch [16/200] train loss: 6.1E-01, test loss: 8.2E-01, accuracy: 0.629, auc_value:0.653, precision: 0.350, recall: 1.000, fscore: 0.519 , time: 3.780(3.950)
-[0/68] logit_loss:0.674964189529419, cls_loss:0.8305675387382507,  patch_num:5709.0, keep_num:1033.0 
-[68/68] logit_loss:0.5182255506515503, cls_loss:1.338095784187317,  patch_num:4075.2753623188405, keep_num:757.0289855072464 
-EarlyStopping counter: 10 out of 30
- Epoch [17/200] train loss: 6.5E-01, test loss: 4.5E-01, accuracy: 0.629, auc_value:0.704, precision: 0.312, recall: 0.714, fscore: 0.435 , time: 3.919(3.949)
-[0/68] logit_loss:0.43944206833839417, cls_loss:0.7204903364181519,  patch_num:2623.0, keep_num:481.0 
-[68/68] logit_loss:0.4616755247116089, cls_loss:1.289196252822876,  patch_num:4075.2753623188405, keep_num:755.5652173913044 
-EarlyStopping counter: 11 out of 30
- Epoch [18/200] train loss: 5.9E-01, test loss: 4.4E-01, accuracy: 0.886, auc_value:0.776, precision: 0.714, recall: 0.714, fscore: 0.714 , time: 3.916(3.947)
-[0/68] logit_loss:0.0782688781619072, cls_loss:3.0176072120666504,  patch_num:697.0, keep_num:126.0 
-[68/68] logit_loss:0.4360300898551941, cls_loss:1.681222677230835,  patch_num:4075.2753623188405, keep_num:754.7971014492754 
-EarlyStopping counter: 12 out of 30
- Epoch [19/200] train loss: 6.0E-01, test loss: 4.5E-01, accuracy: 0.686, auc_value:0.735, precision: 0.357, recall: 0.714, fscore: 0.476 , time: 3.914(3.945)
-[0/68] logit_loss:0.41675180196762085, cls_loss:3.0488460063934326,  patch_num:4214.0, keep_num:832.0 
-[68/68] logit_loss:0.38925865292549133, cls_loss:1.3548763990402222,  patch_num:4075.2753623188405, keep_num:755.2173913043479 
-EarlyStopping counter: 13 out of 30
- Epoch [20/200] train loss: 5.2E-01, test loss: 4.3E-01, accuracy: 0.886, auc_value:0.801, precision: 0.800, recall: 0.571, fscore: 0.667 , time: 3.820(3.939)
-[0/68] logit_loss:1.5621991157531738, cls_loss:0.5679704546928406,  patch_num:3106.0, keep_num:612.0 
-[68/68] logit_loss:0.4254828691482544, cls_loss:1.2509455680847168,  patch_num:4075.2753623188405, keep_num:755.5072463768116 
-EarlyStopping counter: 14 out of 30
- Epoch [21/200] train loss: 5.5E-01, test loss: 5.2E-01, accuracy: 0.829, auc_value:0.786, precision: 0.556, recall: 0.714, fscore: 0.625 , time: 3.781(3.931)
-[0/68] logit_loss:0.051961500197649, cls_loss:0.3506249487400055,  patch_num:6048.0, keep_num:1091.0 
-[68/68] logit_loss:0.49276667833328247, cls_loss:1.3507471084594727,  patch_num:4075.2753623188405, keep_num:753.8695652173913 
-EarlyStopping counter: 15 out of 30
- Epoch [22/200] train loss: 6.3E-01, test loss: 5.8E-01, accuracy: 0.714, auc_value:0.735, precision: 0.385, recall: 0.714, fscore: 0.500 , time: 3.831(3.927)
-[0/68] logit_loss:0.0987265333533287, cls_loss:0.5140966773033142,  patch_num:4257.0, keep_num:766.0 
-[68/68] logit_loss:0.5114056468009949, cls_loss:1.0775421857833862,  patch_num:4075.2753623188405, keep_num:754.1449275362319 
-EarlyStopping counter: 16 out of 30
- Epoch [23/200] train loss: 6.2E-01, test loss: 4.3E-01, accuracy: 0.714, auc_value:0.801, precision: 0.400, recall: 0.857, fscore: 0.545 , time: 3.833(3.923)
-[0/68] logit_loss:1.0635957717895508, cls_loss:1.0832332372665405,  patch_num:2840.0, keep_num:559.0 
-[68/68] logit_loss:0.44884222745895386, cls_loss:1.4100054502487183,  patch_num:4075.2753623188405, keep_num:756.1739130434783 
-EarlyStopping counter: 17 out of 30
- Epoch [24/200] train loss: 5.9E-01, test loss: 5.0E-01, accuracy: 0.714, auc_value:0.776, precision: 0.400, recall: 0.857, fscore: 0.545 , time: 3.873(3.921)
-[0/68] logit_loss:0.7277489304542542, cls_loss:1.1175044775009155,  patch_num:2197.0, keep_num:391.0 
-[68/68] logit_loss:0.43233516812324524, cls_loss:1.481867790222168,  patch_num:4075.2753623188405, keep_num:755.0 
-EarlyStopping counter: 18 out of 30
- Epoch [25/200] train loss: 5.8E-01, test loss: 4.3E-01, accuracy: 0.657, auc_value:0.765, precision: 0.353, recall: 0.857, fscore: 0.500 , time: 3.871(3.919)
-[0/68] logit_loss:0.179008349776268, cls_loss:1.0977932214736938,  patch_num:697.0, keep_num:127.0 
-[68/68] logit_loss:0.45104923844337463, cls_loss:1.336905598640442,  patch_num:4075.2753623188405, keep_num:754.4492753623189 
-EarlyStopping counter: 19 out of 30
- Epoch [26/200] train loss: 5.8E-01, test loss: 4.5E-01, accuracy: 0.800, auc_value:0.745, precision: 0.500, recall: 0.571, fscore: 0.533 , time: 3.788(3.914)
-[0/68] logit_loss:0.19646640121936798, cls_loss:0.5682964324951172,  patch_num:4214.0, keep_num:830.0 
-[68/68] logit_loss:0.43459251523017883, cls_loss:1.2330513000488281,  patch_num:4075.2753623188405, keep_num:753.8550724637681 
-EarlyStopping counter: 20 out of 30
- Epoch [27/200] train loss: 5.6E-01, test loss: 4.3E-01, accuracy: 0.657, auc_value:0.704, precision: 0.353, recall: 0.857, fscore: 0.500 , time: 3.904(3.913)
-[0/68] logit_loss:0.12530964612960815, cls_loss:0.9856586456298828,  patch_num:6048.0, keep_num:1089.0 
-[68/68] logit_loss:0.38320213556289673, cls_loss:1.5576112270355225,  patch_num:4075.2753623188405, keep_num:754.6376811594203 
-EarlyStopping counter: 21 out of 30
- Epoch [28/200] train loss: 5.4E-01, test loss: 4.6E-01, accuracy: 0.543, auc_value:0.730, precision: 0.304, recall: 1.000, fscore: 0.467 , time: 3.894(3.913)
-[0/68] logit_loss:0.23870915174484253, cls_loss:0.4886232316493988,  patch_num:4350.0, keep_num:784.0 
-[68/68] logit_loss:0.43437981605529785, cls_loss:1.1650197505950928,  patch_num:4075.2753623188405, keep_num:753.231884057971 
-EarlyStopping counter: 22 out of 30
- Epoch [29/200] train loss: 5.5E-01, test loss: 4.4E-01, accuracy: 0.600, auc_value:0.679, precision: 0.316, recall: 0.857, fscore: 0.462 , time: 4.011(3.916)
-[0/68] logit_loss:0.47293585538864136, cls_loss:0.7854844331741333,  patch_num:2246.0, keep_num:413.0 
-[68/68] logit_loss:0.40696823596954346, cls_loss:1.6259679794311523,  patch_num:4075.2753623188405, keep_num:753.0289855072464 
-EarlyStopping counter: 23 out of 30
- Epoch [30/200] train loss: 5.7E-01, test loss: 5.0E-01, accuracy: 0.629, auc_value:0.735, precision: 0.350, recall: 1.000, fscore: 0.519 , time: 3.912(3.916)
-[0/68] logit_loss:0.03663197532296181, cls_loss:1.154599666595459,  patch_num:2668.0, keep_num:496.0 
-[68/68] logit_loss:0.3816720247268677, cls_loss:1.5259300470352173,  patch_num:4075.2753623188405, keep_num:752.5217391304348 
-EarlyStopping counter: 24 out of 30
- Epoch [31/200] train loss: 5.3E-01, test loss: 4.5E-01, accuracy: 0.657, auc_value:0.724, precision: 0.368, recall: 1.000, fscore: 0.538 , time: 3.882(3.915)
-[0/68] logit_loss:0.23076415061950684, cls_loss:2.4613521099090576,  patch_num:7561.0, keep_num:1375.0 
-[68/68] logit_loss:0.6801588535308838, cls_loss:1.4107407331466675,  patch_num:4075.2753623188405, keep_num:752.0579710144928 
-EarlyStopping counter: 25 out of 30
- Epoch [32/200] train loss: 8.2E-01, test loss: 5.6E-01, accuracy: 0.657, auc_value:0.811, precision: 0.368, recall: 1.000, fscore: 0.538 , time: 3.978(3.917)
-[0/68] logit_loss:0.11211127042770386, cls_loss:0.6882491111755371,  patch_num:5023.0, keep_num:908.0 
-[68/68] logit_loss:0.38252949714660645, cls_loss:1.4454665184020996,  patch_num:4075.2753623188405, keep_num:751.7101449275362 
-EarlyStopping counter: 26 out of 30
- Epoch [33/200] train loss: 5.3E-01, test loss: 4.1E-01, accuracy: 0.657, auc_value:0.781, precision: 0.368, recall: 1.000, fscore: 0.538 , time: 3.885(3.916)
-[0/68] logit_loss:0.0003116837178822607, cls_loss:1.6555241346359253,  patch_num:936.0, keep_num:164.0 
-[68/68] logit_loss:0.49421483278274536, cls_loss:1.5084285736083984,  patch_num:4075.2753623188405, keep_num:753.2028985507246 
-EarlyStopping counter: 27 out of 30
- Epoch [34/200] train loss: 6.5E-01, test loss: 4.8E-01, accuracy: 0.857, auc_value:0.765, precision: 0.667, recall: 0.571, fscore: 0.615 , time: 3.923(3.916)
-[0/68] logit_loss:0.007256579585373402, cls_loss:5.508829116821289,  patch_num:8737.0, keep_num:1635.0 
-[68/68] logit_loss:0.35632771253585815, cls_loss:1.572155237197876,  patch_num:4075.2753623188405, keep_num:751.2463768115942 
-EarlyStopping counter: 28 out of 30
- Epoch [35/200] train loss: 5.1E-01, test loss: 4.2E-01, accuracy: 0.829, auc_value:0.735, precision: 0.571, recall: 0.571, fscore: 0.571 , time: 3.965(3.917)
-[0/68] logit_loss:0.0032831120770424604, cls_loss:0.24340884387493134,  patch_num:4448.0, keep_num:809.0 
-[68/68] logit_loss:0.36138635873794556, cls_loss:1.34488844871521,  patch_num:4075.2753623188405, keep_num:751.1304347826087 
-EarlyStopping counter: 29 out of 30
- Epoch [36/200] train loss: 5.0E-01, test loss: 5.1E-01, accuracy: 0.600, auc_value:0.760, precision: 0.333, recall: 1.000, fscore: 0.500 , time: 3.904(3.917)
-[0/68] logit_loss:0.04555283486843109, cls_loss:1.1742702722549438,  patch_num:10208.0, keep_num:1854.0 
-[68/68] logit_loss:0.4388650357723236, cls_loss:1.3418067693710327,  patch_num:4075.2753623188405, keep_num:751.4202898550725 
-EarlyStopping counter: 30 out of 30
- Epoch [37/200] train loss: 5.7E-01, test loss: 5.4E-01, accuracy: 0.829, auc_value:0.709, precision: 0.571, recall: 0.571, fscore: 0.571 , time: 3.879(3.916)
-[0/68] logit_loss:0.07125268876552582, cls_loss:0.5750930309295654,  patch_num:6312.0, keep_num:1146.0 
-[68/68] logit_loss:0.3436697721481323, cls_loss:1.3009135723114014,  patch_num:4075.2753623188405, keep_num:750.3768115942029 
-EarlyStopping counter: 31 out of 30
- Epoch [38/200] train loss: 4.7E-01, test loss: 4.4E-01, accuracy: 0.829, auc_value:0.745, precision: 0.571, recall: 0.571, fscore: 0.571 , time: 4.055(3.920)
-[0/68] logit_loss:0.026404133066534996, cls_loss:0.8096377849578857,  patch_num:185.0, keep_num:34.0 
-[68/68] logit_loss:0.40076202154159546, cls_loss:1.477954387664795,  patch_num:4075.2753623188405, keep_num:750.2028985507246 
-EarlyStopping counter: 32 out of 30
- Epoch [39/200] train loss: 5.5E-01, test loss: 4.8E-01, accuracy: 0.571, auc_value:0.786, precision: 0.318, recall: 1.000, fscore: 0.483 , time: 3.853(3.918)
-[0/68] logit_loss:0.16502965986728668, cls_loss:1.3589526414871216,  patch_num:697.0, keep_num:125.0 
-[68/68] logit_loss:0.30691829323768616, cls_loss:1.4401025772094727,  patch_num:4075.2753623188405, keep_num:750.4927536231884 
-EarlyStopping counter: 33 out of 30
- Epoch [40/200] train loss: 4.5E-01, test loss: 4.3E-01, accuracy: 0.829, auc_value:0.735, precision: 0.571, recall: 0.571, fscore: 0.571 , time: 3.897(3.917)
-[0/68] logit_loss:0.00023624490131624043, cls_loss:0.42823857069015503,  patch_num:6023.0, keep_num:1149.0 
-[68/68] logit_loss:0.38591131567955017, cls_loss:1.27738356590271,  patch_num:4075.2753623188405, keep_num:751.0434782608696 
-EarlyStopping counter: 34 out of 30
- Epoch [41/200] train loss: 5.1E-01, test loss: 4.2E-01, accuracy: 0.543, auc_value:0.735, precision: 0.304, recall: 1.000, fscore: 0.467 , time: 3.893(3.917)
-[0/68] logit_loss:0.5882826447486877, cls_loss:0.21748216450214386,  patch_num:3131.0, keep_num:618.0 
-[68/68] logit_loss:0.3805047273635864, cls_loss:1.3309047222137451,  patch_num:4075.2753623188405, keep_num:750.3768115942029 
-EarlyStopping counter: 35 out of 30
- Epoch [42/200] train loss: 5.1E-01, test loss: 4.2E-01, accuracy: 0.543, auc_value:0.735, precision: 0.304, recall: 1.000, fscore: 0.467 , time: 3.914(3.917)
-[0/68] logit_loss:0.7958275079727173, cls_loss:0.45745158195495605,  patch_num:3807.0, keep_num:710.0 
-[68/68] logit_loss:0.3016706705093384, cls_loss:1.4638304710388184,  patch_num:4075.2753623188405, keep_num:750.1739130434783 
-EarlyStopping counter: 36 out of 30
- Epoch [43/200] train loss: 4.5E-01, test loss: 4.0E-01, accuracy: 0.600, auc_value:0.765, precision: 0.333, recall: 1.000, fscore: 0.500 , time: 3.998(3.919)
-[0/68] logit_loss:0.07617465406656265, cls_loss:0.7394386529922485,  patch_num:1192.0, keep_num:216.0 
-[68/68] logit_loss:0.3581732511520386, cls_loss:1.3948811292648315,  patch_num:4075.2753623188405, keep_num:750.9855072463768 
-EarlyStopping counter: 37 out of 30
- Epoch [44/200] train loss: 5.0E-01, test loss: 4.7E-01, accuracy: 0.629, auc_value:0.776, precision: 0.350, recall: 1.000, fscore: 0.519 , time: 3.783(3.916)
-[0/68] logit_loss:2.3841830625315197e-06, cls_loss:2.332152843475342,  patch_num:4257.0, keep_num:777.0 
-[68/68] logit_loss:0.3987888693809509, cls_loss:1.4771324396133423,  patch_num:4075.2753623188405, keep_num:750.8260869565217 
-EarlyStopping counter: 38 out of 30
- Epoch [45/200] train loss: 5.5E-01, test loss: 4.7E-01, accuracy: 0.857, auc_value:0.633, precision: 1.000, recall: 0.286, fscore: 0.444 , time: 3.853(3.914)
-[0/68] logit_loss:0.39385950565338135, cls_loss:0.9731072783470154,  patch_num:1192.0, keep_num:218.0 
-[68/68] logit_loss:0.35165756940841675, cls_loss:1.6325541734695435,  patch_num:4075.2753623188405, keep_num:750.7826086956521 
-EarlyStopping counter: 39 out of 30
- Epoch [46/200] train loss: 5.1E-01, test loss: 4.9E-01, accuracy: 0.543, auc_value:0.699, precision: 0.304, recall: 1.000, fscore: 0.467 , time: 3.843(3.913)
-[0/68] logit_loss:0.8969274759292603, cls_loss:0.7006973624229431,  patch_num:2246.0, keep_num:410.0 
-[68/68] logit_loss:0.31256160140037537, cls_loss:1.3056260347366333,  patch_num:4075.2753623188405, keep_num:751.0289855072464 
